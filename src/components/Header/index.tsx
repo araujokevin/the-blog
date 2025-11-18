@@ -1,6 +1,9 @@
+"use client";
+
 import clsx from "clsx";
 
-export default function HomePage() {
+export function Header() {
+  console.log("HEADER");
   return (
     <h1
       className={clsx(
@@ -13,6 +16,7 @@ export default function HomePage() {
         "duration-1000",
         "bg-blog"
       )}
+      onClick={() => alert(123)}
     >
       Texto no meu h1
     </h1>
