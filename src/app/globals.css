@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
-@theme inline {
+/* @theme inline {
   --color-blog: #ff0000;
-}
+} */
+
+/* @custom-variant dark (&:where(.dark, .dark *)); */
