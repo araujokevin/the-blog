@@ -2,12 +2,32 @@ import { Container } from "@/components/Container";
 import { Header } from "@/components/Header";
 import { PostsList } from "@/components/PostsList";
 import { SpinLoader } from "@/components/SpinLoader";
+import Image from "next/image";
+import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function HomePage() {
   return (
     <Container>
       <Header />
+
+      <section className="grid grid-cols-1 gap-8 mb-16 sm:grid-cols-2 group">
+        <Link className="w-full h-full overflow-hidden rounded-xl" href="#">
+          <Image
+            src="/images/bryen_0.png"
+            width={1200}
+            height={720}
+            alt="Título do Post"
+            className="group-hover:scale-105 transition duration-300"
+          />
+        </Link>
+        <div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
+          ducimus dolorem rerum soluta voluptates? Veritatis illum fugit
+          reiciendis voluptatum perspiciatis esse nisi eveniet quod debitis?
+          Quidem perspiciatis id sint recusandae!
+        </div>
+      </section>
 
       <Suspense fallback={<SpinLoader />}>
         <PostsList />
