@@ -1,12 +1,12 @@
 import clsx from "clsx";
 
 type SpinLoaderProps = {
-  classeName?: string;
+  className?: string;
 };
 
-export function SpinLoader({ classeName = "" }: SpinLoaderProps) {
+export function SpinLoader({ className = "" }: SpinLoaderProps) {
   return (
-    <div className={clsx("flex", "items-center", "justify-center", classeName)}>
+    <div className={clsx("flex", "items-center", "justify-center", className)}>
       <div
         className={clsx(
           "w-10 h-10",
