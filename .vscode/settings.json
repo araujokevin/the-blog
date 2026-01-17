@@ -47,6 +47,5 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "python-envs.defaultEnvManager": "ms-python.python:system"
+  }
 }
