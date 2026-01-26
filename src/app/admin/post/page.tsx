@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function AdminPostPage() {
   return (
-    <Suspense fallback={<SpinLoader className="mb-10" />}>
+    <Suspense fallback={<SpinLoader className="m-10" />}>
       <PostsListAdmin />
     </Suspense>
   );

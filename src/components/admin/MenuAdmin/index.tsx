@@ -1,51 +1,78 @@
+"use client";
+
 import clsx from "clsx";
-import { FileTextIcon, HouseIcon } from "lucide-react";
+import {
+  CircleXIcon,
+  FileTextIcon,
+  HouseIcon,
+  MenuIcon,
+  PlusIcon,
+} from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export function MenuAdmin() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleNavigate() {
+    setIsOpen(false);
+  }
+
   const navClasses = clsx(
     "bg-slate-900 text-slate-100 rounded-lg",
     "flex flex-col",
     "sm:flex-row sm:flex-wrap",
-    // 'overflow-hidden',
-    // "h-10",
+    !isOpen && "overflow-hidden",
+    !isOpen && "h-10",
+    "sm:overflow-visible sm:h-auto",
   );
   const linkClasses = clsx(
     "[&>svg]:w-4 [&>svg]:h-4 px-4",
-    "flex items-center gap-2",
+    "flex items-center gap-2 cursor-pointer",
     "transition hover:bg-slate-800 rounded-lg",
     "h-10",
     "shrink-0",
   );
+
+  const openCloseBtnClasses = clsx(
+    linkClasses,
+    "text-blue-200 italic sm:hidden",
+  );
   return (
     <nav className={navClasses}>
+      <button
+        onClick={() => setIsOpen((s) => !s)}
+        className={openCloseBtnClasses}
+      >
+        {!isOpen && (
+          <>
+            <MenuIcon />
+            Menu
+          </>
+        )}
+
+        {isOpen && (
+          <>
+            <CircleXIcon />
+            Fechar
+          </>
+        )}
+      </button>
       <a className={linkClasses} href="/" target="_blank">
         <HouseIcon />
         Home
       </a>
-      <Link className={linkClasses} href="/admin/post">
+      <Link className={linkClasses} href="/admin/post" onClick={handleNavigate}>
         <FileTextIcon />
         Posts
       </Link>
-      <Link className={linkClasses} href="/admin/post">
-        <FileTextIcon />
-        Posts
-      </Link>
-      <Link className={linkClasses} href="/admin/post">
-        <FileTextIcon />
-        Posts
-      </Link>
-      <Link className={linkClasses} href="/admin/post">
-        <FileTextIcon />
-        Posts
-      </Link>
-      <Link className={linkClasses} href="/admin/post">
-        <FileTextIcon />
-        Posts
-      </Link>
-      <Link className={linkClasses} href="/admin/post">
-        <FileTextIcon />
-        Posts
+      <Link
+        className={linkClasses}
+        href="/admin/post/new"
+        onClick={handleNavigate}
+      >
+        <PlusIcon />
+        Criar post
       </Link>
     </nav>
   );
